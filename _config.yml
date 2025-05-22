@@ -1,5 +1,6 @@
 # --- Основные настройки сайта ---
 title:               "Блог Дениса"
+github:
 description:         "Минималистичный блог на Jekyll"
 author:              "Денис"
 email:               "your@email.com"

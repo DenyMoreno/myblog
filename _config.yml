@@ -3,6 +3,6 @@ description: "Блог о развитии искусственного инте
 baseurl: "" # не меняй
 url: ""     # не меняй
 
-theme: LeNPaul/Millennial
+theme: https://github.com/LeNPaul/Millennial.git
 plugins:
   - jekyll-remote-theme

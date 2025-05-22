@@ -1,6 +1,14 @@
----
-layout: home
-title: Добро пожаловать
----
+title: ИИ и Будущее
+author: Денис
+lang: ru
+theme: null
+remote_theme: niklasbuschmann/m10c
+style: dark
 
-Добро пожаловать на мой блог про ИИ и будущее!
+# Цветовая схема
+colors:
+  accent: "#1e90ff"
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag

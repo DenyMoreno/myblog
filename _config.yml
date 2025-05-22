@@ -1,14 +1,13 @@
 title: ИИ и Будущее
 author: Денис
 lang: ru
-theme: null
-remote_theme: niklasbuschmann/m10c
+remote_theme: vsyakoRazno/m10c
 style: dark
 
-# Цветовая схема
 colors:
   accent: "#1e90ff"
 
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-remote-theme

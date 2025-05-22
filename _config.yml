@@ -1,19 +1,27 @@
-# Site Build Settings
+# --- Основные настройки сайта ---
+title:               "Блог Дениса"
+description:         "Минималистичный блог на Jekyll"
+author:              "Денис"
+email:               "your@email.com"
+url:                 "https://denymoreno.github.io"
+baseurl:             "" # оставить пустым, если используешь username.github.io
 
-# jekyll-paginate configuration
-paginate:            5
-
-# Build settings
+# --- Визуализация и генерация ---
 markdown:            kramdown
 highlighter:         rouge
-permalink:           /:title
-plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
+permalink:           /:title/
 
-# Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
-title:		           "Millennial"
-description:	       "a minimalist Jekyll theme for running a blog or publication"
-author:              "Paul Le"
+# --- Плагины GitHub Pages ---
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
 
-# RSS 2.0 can be used instead of Atom by uncommenting following two lines
-#feed:
-#  path: rss-feed.xml
+# --- Пагинация ---
+paginate:            5
+
+# --- RSS ---
+# Uncomment to use RSS instead of Atom
+# feed:
+#   path: rss-feed.xml

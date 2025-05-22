@@ -3,8 +3,4 @@ description: "Блог о развитии искусственного инте
 baseurl: "" # не меняй
 url: ""     # не меняй
 
-remote_theme: "niklasbuschmann/m10c"
-
-plugins:
-  - jekyll-remote-theme
-  - jekyll-feed
+theme: jekyll-theme-hacker

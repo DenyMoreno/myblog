@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ИИ и Будущее</title>
+    <link>http://example.org/</link>
+    <description>Recent content on ИИ и Будущее</description>
+    <generator>Hugo</generator>
+    <language>ru</language>
+    <lastBuildDate>Wed, 21 May 2025 12:00:00 +0000</lastBuildDate>
+    <atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>первая статья</title>
+      <link>http://example.org/posts/pervaya-statya/</link>
+      <pubDate>Wed, 21 May 2025 12:00:00 +0000</pubDate>
+      <guid>http://example.org/posts/pervaya-statya/</guid>
+      <description>&lt;p&gt;привет! это моя первая статья на hugo-сайте.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Генерация сайтов с Hugo</title>
+      <link>http://example.org/posts/hugo-automation/</link>
+      <pubDate>Wed, 21 May 2025 07:59:13 +0000</pubDate>
+      <guid>http://example.org/posts/hugo-automation/</guid>
+      <description>&lt;p&gt;Процесс автоматизации сайта с использованием Hugo.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Монетизация с ИИ</title>
+      <link>http://example.org/posts/ai-monetization/</link>
+      <pubDate>Tue, 20 May 2025 07:59:13 +0000</pubDate>
+      <guid>http://example.org/posts/ai-monetization/</guid>
+      <description>&lt;p&gt;Как зарабатывать с ИИ, не бросая основную работу.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Доверие к ИИ</title>
+      <link>http://example.org/posts/trust-in-ai/</link>
+      <pubDate>Mon, 19 May 2025 07:59:13 +0000</pubDate>
+      <guid>http://example.org/posts/trust-in-ai/</guid>
+      <description>&lt;p&gt;Как сформировать доверие: объяснимость, контроль, прозрачность.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Генерация контента</title>
+      <link>http://example.org/posts/content-generation/</link>
+      <pubDate>Sun, 18 May 2025 07:59:13 +0000</pubDate>
+      <guid>http://example.org/posts/content-generation/</guid>
+      <description>&lt;p&gt;ИИ создает статьи, музыку, видео.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Будущее труда</title>
+      <link>http://example.org/posts/future-of-work/</link>
+      <pubDate>Sat, 17 May 2025 07:59:13 +0000</pubDate>
+      <guid>http://example.org/posts/future-of-work/</guid>
+      <description>&lt;p&gt;Профессии будущего, вытеснение и коллаборация с ИИ.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Автоматизация задач</title>
+      <link>http://example.org/posts/ai-in-automation/</link>
+      <pubDate>Fri, 16 May 2025 07:59:13 +0000</pubDate>
+      <guid>http://example.org/posts/ai-in-automation/</guid>
+      <description>&lt;p&gt;ИИ ускоряет и оптимизирует рутину.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ИИ в образовании</title>
+      <link>http://example.org/posts/ai-in-education/</link>
+      <pubDate>Thu, 15 May 2025 07:59:13 +0000</pubDate>
+      <guid>http://example.org/posts/ai-in-education/</guid>
+      <description>&lt;p&gt;Создание программ, тестов и помощи ученикам.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Персональный помощник</title>
+      <link>http://example.org/posts/personal-assistant/</link>
+      <pubDate>Wed, 14 May 2025 07:59:13 +0000</pubDate>
+      <guid>http://example.org/posts/personal-assistant/</guid>
+      <description>&lt;p&gt;ИИ в роли помощника — организация, напоминания, креатив.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Этика и право</title>
+      <link>http://example.org/posts/ethics-and-law/</link>
+      <pubDate>Tue, 13 May 2025 07:59:13 +0000</pubDate>
+      <guid>http://example.org/posts/ethics-and-law/</guid>
+      <description>&lt;p&gt;Как ИИ взаимодействует с юридическими и моральными нормами.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Сценарии развития ИИ</title>
+      <link>http://example.org/posts/scenarios-of-ai/</link>
+      <pubDate>Mon, 12 May 2025 07:59:13 +0000</pubDate>
+      <guid>http://example.org/posts/scenarios-of-ai/</guid>
+      <description>&lt;p&gt;Обсуждали разные пути развития ИИ: утопия, дистопия, регуляция.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

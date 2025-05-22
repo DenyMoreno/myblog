@@ -3,4 +3,6 @@ description: "Блог о развитии искусственного инте
 baseurl: "" # не меняй
 url: ""     # не меняй
 
-theme: jekyll-theme-hacker
+theme: LeNPaul/Millennial
+plugins:
+  - jekyll-remote-theme

@@ -6,21 +6,28 @@
   background-size: cover;
   position: relative;
 }
+.featured-post::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%; /* или ограничить например 60% */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  z-index: 1;
+}
+
 .featured-post h2 {
+  position: absolute;
   bottom: 0;
   margin: 0;
   padding: 10px;
-  position: absolute;
+  z-index: 2; /* поверх градиента */
 }
+
 .featured-post h2 span {
-  display: inline-block;
-  color: white;
-  font: bold 24px/45px Helvetica, Sans-Serif;
-  letter-spacing: -1px;
-  padding: 10px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)); /* от чёрного к прозрачному */
-  width: 100%; /* растягивает градиент по всей ширине блока */
-  box-sizing: border-box;
+  background: none; /* убираем фон тут */
+  padding: 0;
 }
 .featured-post span a {
   color: white;

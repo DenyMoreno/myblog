@@ -13,10 +13,11 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 80%; /* можно увеличить до 80% если нужно больше затемнить */
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  height: 50%; /* увеличим зону затемнения */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.3), transparent);
   z-index: 1;
   pointer-events: none;
+
 }
 
 .featured-post h2 {

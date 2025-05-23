@@ -17,9 +17,10 @@
   color: white;
   font: bold 24px/45px Helvetica, Sans-Serif;
   letter-spacing: -1px;
-  background: rgb(0, 0, 0); /* fallback color */
-  background: rgba(0, 0, 0, 0.7);
   padding: 10px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)); /* от чёрного к прозрачному */
+  width: 100%; /* растягивает градиент по всей ширине блока */
+  box-sizing: border-box;
 }
 .featured-post span a {
   color: white;

@@ -1,17 +1,19 @@
 <span class="post-date">
-  {{ site.data.settings.post_date_prefix }}
-  {% assign d = page.date | date: "%-d"  %}
-  {{ page.date | date: "%B" }}
-  {% case d %}
-    {% when '1' or '21' or '31' %}{{ d }}st
-    {% when '2' or '22' %}{{ d }}nd
-    {% when '3' or '23' %}{{ d }}rd
-    {% else %}{{ d }}th{% endcase %},
+  Создано {{ page.date | date: "%-d" }} 
+  {% assign month = page.date | date: "%-m" %}
+  {% case month %}
+    {% when '1' %}января
+    {% when '2' %}февраля
+    {% when '3' %}марта
+    {% when '4' %}апреля
+    {% when '5' %}мая
+    {% when '6' %}июня
+    {% when '7' %}июля
+    {% when '8' %}августа
+    {% when '9' %}сентября
+    {% when '10' %}октября
+    {% when '11' %}ноября
+    {% when '12' %}декабря
+  {% endcase %}
   {{ page.date | date: "%Y" }}
-  by
-  {% if page.author %}
-    {{ page.author }}
-  {% else %}
-    {{ site.author }}
-  {% endif %}
 </span>

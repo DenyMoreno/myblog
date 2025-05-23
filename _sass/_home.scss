@@ -26,8 +26,14 @@
 }
 
 .featured-post h2 span {
-  background: none; /* убираем фон тут */
-  padding: 0;
+  display: inline-block;
+  color: white;
+  font: bold 18px/24px Helvetica, Sans-Serif; /* меньше размер и меньше line-height */
+  letter-spacing: -0.5px;
+  padding: 10px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+  width: 100%;
+  box-sizing: border-box;
 }
 .featured-post span a {
   color: white;

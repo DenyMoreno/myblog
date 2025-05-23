@@ -27,3 +27,33 @@ $codepen-color: black;
 $rss-color: #ff6600;
 
 @import "-sections-dir";
+
+
+/* --- Автоматическая тёмная тема --- */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #111111;
+    color: #dddddd;
+  }
+
+  a {
+    color: #88ccff;
+  }
+
+  .site-header,
+  .site-footer {
+    background-color: #1a1a1a;
+  }
+
+  .featured-post::before {
+    background: linear-gradient(to top,
+      rgba(0, 0, 0, 0.95),
+      rgba(0, 0, 0, 0.3),
+      transparent
+    );
+  }
+
+  .featured-post h2 span {
+    color: #ffffff;
+  }
+}

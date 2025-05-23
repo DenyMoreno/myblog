@@ -57,3 +57,24 @@ $rss-color: #ff6600;
     color: #ffffff;
   }
 }
+[data-theme="dark"] body {
+  background-color: #111111;
+  color: #dddddd;
+}
+
+[data-theme="dark"] a {
+  color: #88ccff;
+}
+
+[data-theme="dark"] .site-header,
+[data-theme="dark"] .site-footer {
+  background-color: #1a1a1a;
+}
+
+[data-theme="dark"] .featured-post::before {
+  background: linear-gradient(to top,
+    rgba(0, 0, 0, 0.95),
+    rgba(0, 0, 0, 0.3),
+    transparent
+  );
+}

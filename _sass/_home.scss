@@ -12,7 +12,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 100%; /* или ограничить например 60% */
+  height: 60%; /* или больше/меньше, в зависимости от глубины затемнения */
   background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
   z-index: 1;
 }
@@ -22,18 +22,17 @@
   bottom: 0;
   margin: 0;
   padding: 10px;
-  z-index: 2; /* поверх градиента */
+  z-index: 2; /* Поверх градиента */
 }
 
 .featured-post h2 span {
   display: inline-block;
   color: white;
-  font: bold 18px/24px Helvetica, Sans-Serif; /* меньше размер и меньше line-height */
+  font: bold 18px/24px Helvetica, Sans-Serif;
   letter-spacing: -0.5px;
   padding: 10px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
-  width: 100%;
-  box-sizing: border-box;
+  background: none; /* Убираем подложку */
+
 }
 .featured-post span a {
   color: white;

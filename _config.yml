@@ -1,4 +1,4 @@
-# Site Build Settings
+# Site Build Settings 
 
 # jekyll-paginate configuration
 paginate:            10
@@ -7,16 +7,30 @@ paginate:            10
 markdown:            kramdown
 highlighter:         rouge
 permalink:           /:title
-plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
-
-# Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
-title:		           "DenyMoreno"
-description:	       "максимум пользы от ресурса в виде блога"
-author:              "Денис Б."
+plugins:             
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
 
 # RSS 2.0 can be used instead of Atom by uncommenting following two lines
 #feed:
 #  path: rss-feed.xml
+
+# Site metadata (used by SEO, Atom, etc.)
+title:               "DenyMoreno"
+description:         "максимум пользы от ресурса в виде блога"
+author:              "Денис Б."
+
+# Коллекции
 collections:
   posts:
     output: true
+
+# Значения по умолчанию (чтобы страницы использовали правильный layout)
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: page

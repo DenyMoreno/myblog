@@ -1,6 +1,8 @@
 <footer class="footer">
   {% for item in site.data.settings.social %}
-    <a href="{{ item.link }}" class="menu-link" target="_blank"><i class="fa fa-{{ item.icon }}" aria-hidden="true"></i></a>
+    <a href="{{ item.link }}" class="menu-link" target="_blank">
+      <i class="fa fa-{{ item.icon }}" aria-hidden="true"></i>
+    </a>
   {% endfor %}
   <div class="footer-description">
     <a href="{{ site.github.url }}/">{{ site.title }} | {{ site.description }} by {{ site.author }}</a>
@@ -9,5 +11,17 @@
   <div class="theme-toggle">
     <button onclick="toggleTheme()">Сменить тему</button>
   </div>
-</footer>
 
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+  </script>
+</footer>

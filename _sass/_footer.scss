@@ -5,25 +5,38 @@
   min-height: 56px;
   line-height: 45px;
   width: $container-width;
+  font-size: 1rem;
+  padding: 10px 0;
 }
+
 .footer a {
   color: $brand-color;
-  padding: 0px 10px 0px;
+  padding: 0px 10px;
   text-decoration: none;
 }
-@media (max-width: $container-width) {
-  .footer {
-    background: white;
-    color: $brand-color;
-    text-align: center;
-    min-height: 56px;
-    line-height: 45px;
-    width: 95vw;
-  }
-}
+
 .footer-description {
   display: block;
   margin-bottom: 1rem;
   color: #9a9a9a;
-  font-size:0.8rem;
+  font-size: 0.8rem;
+}
+
+/* 📱 Адаптация под маленькие экраны */
+@media (max-width: 768px) {
+  .footer {
+    width: 95vw;
+    font-size: 0.85rem;
+    line-height: 38px;
+    padding: 8px 0;
+  }
+
+  .footer-description {
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer a {
+    padding: 0 6px;
+  }
 }

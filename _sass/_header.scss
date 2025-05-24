@@ -18,6 +18,16 @@
   }
 }
 
+/* Отменяем системную тему, если переключена вручную */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .site-header,
+  :root:not([data-theme="light"]) .site-header a,
+  :root:not([data-theme="light"]) .site-title a {
+    background-color: #1a1a1a;
+    color: white !important;
+  }
+}
+
 .site-header a {
   text-decoration: none;
 }

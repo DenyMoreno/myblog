@@ -7,7 +7,9 @@
   background-size: cover;
   position: relative;
   overflow: hidden; /* чтобы не вылезал ::after */
+  cursor: pointer;
 }
+
 .featured-post::before {
   content: "";
   position: absolute;
@@ -23,6 +25,17 @@
   );
   z-index: 1;
   pointer-events: none;
+  transition: background 0.3s ease;
+}
+
+/* Добавляем эффект прозрачности на фон при наведении */
+.featured-post:hover::before {
+  background: linear-gradient(to top,
+    rgba(0, 0, 0, 0.95) 20%,
+    rgba(0, 0, 0, 0.85) 50%,
+    rgba(0, 0, 0, 0.5) 80%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
 }
 
 .featured-post h2 {
@@ -31,20 +44,30 @@
   margin: 0;
   padding: 10px;
   z-index: 2; /* Поверх градиента */
+  color: white;
+  font: bold 18px/24px Helvetica, Sans-Serif;
+  letter-spacing: -0.5px;
+  background: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Подсветка заголовка при наведении */
+.featured-post:hover h2 {
+  color: #fff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
 }
 
 .featured-post h2 span {
   display: inline-block;
-  color: white;
-  font: bold 18px/24px Helvetica, Sans-Serif;
-  letter-spacing: -0.5px;
-  padding: 0px;
-  background: none; /* Убираем подложку */
+  color: inherit;
+  padding: 0;
+  background: none;
+}
 
-}
 .featured-post span a {
-  color: white;
+  color: inherit;
 }
+
 .featured-post h1 {
   margin: 10px;
 }
@@ -56,9 +79,11 @@
 .pagination {
   text-align: center;
 }
+
 .pagination a {
   text-decoration: none;
 }
+
 .pagination-button {
   color: #999;
   border: 1px solid #e0e0e0;
@@ -69,12 +94,15 @@
   font-size: 16px;
   font-weight: bold;
 }
+
 .pagination-active {
   color: black;
 }
+
 .pagination-active:hover {
   background-color: #e0e0e0;
 }
+
 /* --- Dark Theme Fixes --- */
 [data-theme="dark"] .pagination-button {
   border-color: #444; /* серый вместо белого */

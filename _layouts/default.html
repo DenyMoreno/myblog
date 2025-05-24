@@ -9,24 +9,5 @@
       </div>
       {% include footer.html %}
     </div>
-    <script>
-  if (localStorage.getItem('theme') === 'dark') {
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-</script>
-
-    <button onclick="toggleTheme()" style="margin-left: 15px; cursor: pointer;">
-  Сменить тему
-</button>
-
-    <script>
-  function toggleTheme() {
-    const current = document.documentElement.getAttribute('data-theme');
-    const next = current === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
-  }
-</script>
-    
   </body>
 </html>

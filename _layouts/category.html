@@ -1,9 +1,8 @@
----
-layout: default
----
+<h2 class="page-title">{{ page.url | split: '/' | last | capitalize }}</h2>
 
+{% assign this_category = page.url | split: '/' | last %}
 {% for post in site.posts %}
-  {% if post.categories contains page.category %}
+  {% if post.categories contains this_category %}
     {% include featured-post.html %}
   {% endif %}
 {% endfor %}

@@ -74,3 +74,40 @@
 .pagination-active:hover {
   background-color: #e0e0e0;
 }
+/* --- Dark Theme Fixes --- */
+[data-theme="dark"] .pagination-button {
+  border-color: #444; /* серый вместо белого */
+  color: #ccc;
+  background-color: #111;
+}
+
+[data-theme="dark"] .pagination-button:hover {
+  background-color: #222;
+}
+
+[data-theme="dark"] .pagination-active {
+  color: white;
+}
+
+[data-theme="dark"] .dropdown-content,
+[data-theme="dark"] .dropbtn {
+  background-color: #222;
+  color: white;
+}
+
+[data-theme="dark"] .dropdown-content a {
+  color: white;
+}
+
+[data-theme="dark"] .dropdown-content a:hover {
+  background-color: #333;
+}
+.content-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+[data-theme="dark"] .footer-description {
+  background-color: #1a1a1a;
+  color: #ccc;
+}

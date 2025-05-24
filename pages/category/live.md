@@ -1,4 +1,4 @@
 layout: category
 title: Жизнь
-permalink: /category/live/
+permalink: /myblog/category/live/
 category: live

@@ -1,12 +1,12 @@
 <header class="site-header">
   <h3 class="site-title">
-    <a href="{{ site.github.url }}/">{{ site.title }}</a>
+    <a href="{{ site.baseurl }}/">{{ site.title }}</a>
   </h3>
   <nav class="menu-list">
     {% assign categories = site.posts | map: "categories" | join: "," | split: "," | uniq | sort %}
     {% for category in categories %}
       {% assign category_trimmed = category | strip %}
-      <a href="{{ site.github.url }}/category/{{ category_trimmed | slugify }}" class="menu-link">{{ category_trimmed }}</a>
+      <a href="{{ site.baseurl }}/category/{{ category_trimmed | slugify }}/" class="menu-link">{{ category_trimmed }}</a>
     {% endfor %}
     {% for item in site.data.settings.social %}
       <a href="{{ item.link }}" class="menu-link" target="_blank"><i class="fa fa-{{ item.icon }}" aria-hidden="true"></i></a>
@@ -17,7 +17,7 @@
     <div class="dropdown-content">
       {% for category in categories %}
         {% assign category_trimmed = category | strip %}
-        <a href="{{ site.github.url }}/category/{{ category_trimmed | slugify }}" class="menu-link">{{ category_trimmed }}</a>
+        <a href="{{ site.baseurl }}/category/{{ category_trimmed | slugify }}/" class="menu-link">{{ category_trimmed }}</a>
       {% endfor %}
       {% for item in site.data.settings.social %}
         <a href="{{ item.link }}" class="menu-link" target="_blank"><i class="fa fa-{{ item.icon }}" aria-hidden="true"></i></a>

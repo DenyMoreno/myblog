@@ -29,6 +29,19 @@ $rss-color: #ff6600;
 @import "-sections-dir";
 
 /* --- Автоматическая и ручная тёмная тема --- */
+body {
+  background-color: white;
+  color: black;
+}
+
+a {
+  color: #007acc;
+}
+
+.site-header,
+.site-footer {
+  background-color: white;
+}
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #111111;

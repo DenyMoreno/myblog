@@ -172,3 +172,16 @@ a {
 [data-theme="dark"] .theme-toggle button {
   color: white;
 }
+[data-theme="light"] {
+  background-color: white;
+  color: black;
+}
+
+[data-theme="light"] a {
+  color: #007acc;
+}
+
+[data-theme="light"] .site-header,
+[data-theme="light"] .site-footer {
+  background-color: white;
+}

@@ -5,7 +5,7 @@ layout: default
 <h1>Посты в категории: {{ page.title }}</h1>
 
 <ul>
-  {% assign current_category = page.title %}
+  {% assign current_category = page.category %}
   {% for post in site.posts %}
     {% if post.categories contains current_category %}
       <li>

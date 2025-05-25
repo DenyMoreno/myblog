@@ -32,5 +32,10 @@ defaults:
       type: "pages"
     values:
       layout: page
+  - scope:
+      path: "category"
+      type: "pages"
+    values:
+      layout: category
 
 baseurl: "/myblog"

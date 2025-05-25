@@ -7,6 +7,8 @@ $code-font-family: "Source Code Pro", monospace;
 
 $brand-color: black;
 
+
+
 $container-width: 1000px;
 $tablet-width: 600px;
 $phone-width: 480px;
@@ -41,9 +43,7 @@ a {
 .site-header,
 .site-footer {
   background-color: white;
-  position: relative; /* Важно для абсолютного позиционирования бургера */
 }
-
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #111111;
@@ -251,4 +251,58 @@ body, .footer, .header, .post-content {
 // Социконки справа
 .social-icons {
   position: absolute;
-  right:
+  right: 10px;
+  top: 10px;
+
+  .menu-link {
+    margin-left: 10px;
+  }
+}
+
+// Мобильная версия
+@media screen and (max-width: 768px) {
+  .category-nav {
+    display: none;
+  }
+
+  .dropdown {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+  }
+
+  .dropdown-content {
+    right: 0;
+    left: auto;
+  }
+
+  .dropdown-content .menu-link.active {
+    border-left: 4px solid;
+    padding-left: 12px;
+  }
+
+  [data-theme="dark"] .dropdown-content .menu-link.active {
+    border-color: #fff;
+    color: #fff;
+  }
+
+  [data-theme="light"] .dropdown-content .menu-link.active {
+    border-color: #000;
+    color: #000;
+  }
+}
+/* Скрываем бургер вне мобильной ширины */
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .category-nav,
+  .social-icons {
+    display: none;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+} 

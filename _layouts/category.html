@@ -5,9 +5,13 @@ layout: default
 <h1>Посты в категории: {{ page.title }}</h1>
 
 <ul>
+  {% assign current_category = page.title %}
   {% for post in site.posts %}
-    {% if post.categories contains page.category %}
-      <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+    {% if post.categories contains current_category %}
+      <li>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <small>({{ post.date | date: "%Y-%m-%d" }})</small>
+      </li>
     {% endif %}
   {% endfor %}
 </ul>

@@ -20,7 +20,7 @@
     </ul>
   </nav>
 
-  <!-- Иконки соцсетей (отдельно) -->
+  <!-- Иконки соцсетей -->
   <div class="social-icons">
     {% for item in site.data.settings.social %}
       <a href="{{ item.link }}" class="menu-link" target="_blank">
@@ -29,8 +29,8 @@
     {% endfor %}
   </div>
 
-  <!-- Бургер-меню для мобилок -->
-  <div class="dropdown">
+  <!-- Бургер-меню только для мобилок -->
+  <div class="dropdown mobile-only">
     <button class="dropbtn"><i class="fa fa-bars" aria-hidden="true"></i></button>
     <div class="dropdown-content">
       {% for category in categories %}
@@ -49,4 +49,3 @@
     </div>
   </div>
 </header>
-

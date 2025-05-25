@@ -20,7 +20,7 @@ plugins:
 # Site metadata (used by SEO, Atom, etc.)
 title:               "DenyMoreno"
 description:         "максимум пользы от ресурса в виде блога"
-author:              "Денис Б."
+author:              ""
 
 # Коллекции
 collections:

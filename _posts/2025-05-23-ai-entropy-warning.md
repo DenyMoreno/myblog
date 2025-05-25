@@ -2,7 +2,7 @@
 layout: post
 title: "Парадокс ИИ: предупреждение, которое само по себе — сигнал"
 date: 2025-05-23
-categories: [AI, trust, entropy]
+categories: [ai, live]
 image: ii3.jpg
 ---
 

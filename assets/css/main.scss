@@ -1,141 +1,251 @@
-/* Reset */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+$base-font-family: 'Roboto', sans-serif;
+$body-font-family: 'Roboto', sans-serif;
+$code-font-family: "Source Code Pro", monospace;
 
-/* Общие стили */
+$brand-color: black;
+
+$container-width: 1000px;
+$tablet-width: 600px;
+$phone-width: 480px;
+
+$header-thickness: 56px;
+
+$icon-transition-time: 1.0s;
+$envelope-color: #f39c12;
+$twitter-color: #00aced;
+$instagram-color: #375989;
+$github-color: #343434;
+$linkedin-color: #0073a4;
+$facebook-color: #3d5b99;
+$google-color: #e64a41;
+$pinterest-color: #bd081c;
+$medium-color: #00AB6C;
+$codepen-color: black;
+$rss-color: #ff6600;
+
+@import "-sections-dir";
+
+/* --- Автоматическая и ручная тёмная тема --- */
 body {
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.6;
-  background: var(--bg);
-  color: var(--text);
-  transition: background 0.3s, color 0.3s;
+  background-color: white;
+  color: black;
 }
 
-/* Темы */
-:root {
-  --bg: #fff;
-  --text: #000;
-  --link: #007acc;
-}
-[data-theme="dark"] {
-  --bg: #121212;
-  --text: #f2f2f2;
-  --link: #6ab0f3;
-}
-
-/* Ссылки */
 a {
-  color: var(--link);
+  color: #007acc;
+}
+
+.site-header,
+.site-footer {
+  background-color: white;
+  position: relative; /* Важно для абсолютного позиционирования бургера */
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #111111;
+    color: #dddddd;
+  }
+
+  a {
+    color: #88ccff;
+  }
+
+  .site-header,
+  .site-footer {
+    background-color: #1a1a1a;
+  }
+
+  .featured-post::before {
+    background: linear-gradient(to top,
+      rgba(0, 0, 0, 0.95),
+      rgba(0, 0, 0, 0.3),
+      transparent
+    );
+  }
+
+  .featured-post h2 span {
+    color: #ffffff;
+  }
+
+  .dropbtn {
+    background-color: #1a1a1a;
+    color: white;
+  }
+
+  .pagination a {
+    border-color: #ffffff;
+    color: #ffffff;
+  }
+}
+
+[data-theme="dark"] body {
+  background-color: #111111;
+  color: #dddddd;
+}
+
+[data-theme="dark"] a {
+  color: #88ccff;
+}
+
+[data-theme="dark"] .site-header,
+[data-theme="dark"] .site-footer {
+  background-color: #1a1a1a;
+}
+
+[data-theme="dark"] .featured-post::before {
+  background: linear-gradient(to top,
+    rgba(0, 0, 0, 0.95),
+    rgba(0, 0, 0, 0.3),
+    transparent
+  );
+}
+
+[data-theme="dark"] .featured-post h2 span {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .dropbtn {
+  background-color: #1a1a1a;
+  color: white;
+}
+
+[data-theme="dark"] .pagination a {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+/* --- Footer и кнопка переключения темы --- */
+.footer {
+  background-color: #f5f5f5;
+  padding: 1em 0;
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+}
+
+.footer a {
+  color: #333;
   text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
+  margin: 0 5px;
 }
 
-/* Заголовок */
-.site-header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  background: var(--bg);
-  position: relative;
-  z-index: 10;
-  border-bottom: 1px solid #ddd;
+.footer-description {
+  margin-top: 10px;
 }
 
-.site-title {
-  font-size: 1.5rem;
-  z-index: 20;
-  position: relative;
-}
-.site-title a {
-  color: var(--text);
-  font-weight: bold;
-  display: inline-block;
-  padding: 0.25rem 0;
+.theme-toggle button {
+  color: #333;
+  background: none;
+  border: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  margin-top: 10px;
+  cursor: pointer;
 }
 
-/* Категории */
+@media (prefers-color-scheme: dark) {
+  .footer {
+    background-color: #1a1a1a;
+    color: white;
+  }
+
+  .footer a {
+    color: white;
+  }
+
+  .theme-toggle button {
+    color: white;
+  }
+}
+
+[data-theme="dark"] .footer {
+  background-color: #1a1a1a;
+  color: white;
+}
+
+[data-theme="dark"] .footer a {
+  color: white;
+}
+
+[data-theme="dark"] .theme-toggle button {
+  color: white;
+}
+[data-theme="light"] {
+  background-color: white;
+  color: black;
+}
+
+[data-theme="light"] a {
+  color: #007acc;
+}
+
+[data-theme="light"] .site-header,
+[data-theme="light"] .site-footer {
+  background-color: white;
+}
+.content-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  padding-top: $header-thickness; // 80px
+}
+html {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body, .footer, .header, .post-content {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
 .category-nav {
   display: flex;
-  gap: 1rem;
-}
-.category-list {
-  display: flex;
-  list-style: none;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-.category-link {
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-}
-.category-link.active {
-  background: var(--link);
-  color: #fff;
-}
+  justify-content: flex-end;
+  margin-top: 10px;
+  margin-right: 20px;
 
-/* Соцсети */
-.social-icons a {
-  margin-left: 0.5rem;
-  color: var(--text);
-}
+  .category-list {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 
-/* Бургер-меню для мобилок */
-.mobile-only {
-  display: none;
-}
-@media (max-width: 768px) {
-  .category-nav {
-    display: none;
-  }
-  .mobile-only {
-    display: block;
-    position: relative;
-    z-index: 15;
-  }
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    right: 0;
-    background-color: var(--bg);
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 30;
-    padding: 1rem;
-  }
-  .dropbtn:hover + .dropdown-content,
-  .dropdown-content:hover {
-    display: block;
-  }
-  .dropdown-content a {
-    display: block;
-    padding: 0.5rem 0;
-    color: var(--text);
+    li {
+      display: flex;
+      align-items: center;
+    }
+
+    .category-link {
+      display: inline-block;
+      padding: 8px 16px;
+      min-width: 100px; // ← Подберёшь под себя
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .category-link:hover {
+      opacity: 0.8;
+    }
+
+    [data-theme="dark"] & .category-link.active {
+      background: #fff;
+      color: #000;
+      border-color: #fff;
+    }
+
+    [data-theme="light"] & .category-link.active {
+      background: #000;
+      color: #fff;
+      border-color: #000;
+    }
   }
 }
 
-/* Контент */
-.content-wrapper {
-  max-width: 768px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-/* Кнопка переключения темы (если будет) */
-.theme-toggle {
-  cursor: pointer;
-  margin-left: 1rem;
-}
-
-/* Подвал */
-.site-footer {
-  text-align: center;
-  padding: 1rem;
-  color: var(--text);
-  border-top: 1px solid #ccc;
-}
+// Социконки справа
+.social-icons {
+  position: absolute;
+  right:

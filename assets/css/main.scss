@@ -291,3 +291,18 @@ body, .footer, .header, .post-content {
     color: #000;
   }
 }
+/* Скрываем бургер вне мобильной ширины */
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .category-nav,
+  .social-icons {
+    display: none;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+}

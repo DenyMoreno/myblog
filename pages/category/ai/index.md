@@ -1,5 +1,5 @@
 layout: category
-title: AI
+title: ai
 category: ai
 permalink: /category/ai/
 

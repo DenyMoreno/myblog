@@ -3,7 +3,7 @@ layout: post
 title: "ИИ с рамками и без: куда движется разум, созданный нами"
 date: 2025-05-23
 author: Денис
-categories: ai blog
+categories: [ai, live]
 tags: [ИИ, будущее, размышления, технологии]
 image: ii1.jpg
 ---

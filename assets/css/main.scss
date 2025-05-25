@@ -200,3 +200,94 @@ html {
 body, .footer, .header, .post-content {
   transition: background-color 0.4s ease, color 0.4s ease;
 }
+.category-nav {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  margin-right: 20px;
+
+  .category-list {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: flex;
+      align-items: center;
+    }
+
+    .category-link {
+      display: inline-block;
+      padding: 8px 16px;
+      min-width: 100px; // ← Подберёшь под себя
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .category-link:hover {
+      opacity: 0.8;
+    }
+
+    [data-theme="dark"] & .category-link.active {
+      background: #fff;
+      color: #000;
+      border-color: #fff;
+    }
+
+    [data-theme="light"] & .category-link.active {
+      background: #000;
+      color: #fff;
+      border-color: #000;
+    }
+  }
+}
+
+// Социконки справа
+.social-icons {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+
+  .menu-link {
+    margin-left: 10px;
+  }
+}
+
+// Мобильная версия
+@media screen and (max-width: 768px) {
+  .category-nav {
+    display: none;
+  }
+
+  .dropdown {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+  }
+
+  .dropdown-content {
+    right: 0;
+    left: auto;
+  }
+
+  .dropdown-content .menu-link.active {
+    border-left: 4px solid;
+    padding-left: 12px;
+  }
+
+  [data-theme="dark"] .dropdown-content .menu-link.active {
+    border-color: #fff;
+    color: #fff;
+  }
+
+  [data-theme="light"] .dropdown-content .menu-link.active {
+    border-color: #000;
+    color: #000;
+  }
+}

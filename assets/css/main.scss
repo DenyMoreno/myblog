@@ -7,8 +7,6 @@ $code-font-family: "Source Code Pro", monospace;
 
 $brand-color: black;
 
-
-
 $container-width: 1000px;
 $tablet-width: 600px;
 $phone-width: 480px;
@@ -30,10 +28,11 @@ $rss-color: #ff6600;
 
 @import "-sections-dir";
 
-/* --- Автоматическая и ручная тёмная тема --- */
+/* --- Светлая тема (по умолчанию) --- */
 body {
   background-color: white;
   color: black;
+  font-family: $body-font-family;
 }
 
 a {
@@ -44,6 +43,8 @@ a {
 .site-footer {
   background-color: white;
 }
+
+/* --- Тёмная тема (через prefers-color-scheme) --- */
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #111111;
@@ -80,119 +81,112 @@ a {
     border-color: #ffffff;
     color: #ffffff;
   }
-}
 
-[data-theme="dark"] body {
-  background-color: #111111;
-  color: #dddddd;
-}
-
-[data-theme="dark"] a {
-  color: #88ccff;
-}
-
-[data-theme="dark"] .site-header,
-[data-theme="dark"] .site-footer {
-  background-color: #1a1a1a;
-}
-
-[data-theme="dark"] .featured-post::before {
-  background: linear-gradient(to top,
-    rgba(0, 0, 0, 0.95),
-    rgba(0, 0, 0, 0.3),
-    transparent
-  );
-}
-
-[data-theme="dark"] .featured-post h2 span {
-  color: #ffffff;
-}
-
-[data-theme="dark"] .dropbtn {
-  background-color: #1a1a1a;
-  color: white;
-}
-
-[data-theme="dark"] .pagination a {
-  border-color: #ffffff;
-  color: #ffffff;
-}
-
-/* --- Footer и кнопка переключения темы --- */
-.footer {
-  background-color: #f5f5f5;
-  padding: 1em 0;
-  text-align: center;
-  font-size: 14px;
-  color: #333;
-}
-
-.footer a {
-  color: #333;
-  text-decoration: none;
-  margin: 0 5px;
-}
-
-.footer-description {
-  margin-top: 10px;
-}
-
-.theme-toggle button {
-  color: #333;
-  background: none;
-  border: none;
-  font-family: 'Roboto', sans-serif;
-  font-size: 14px;
-  margin-top: 10px;
-  cursor: pointer;
-}
-
-@media (prefers-color-scheme: dark) {
   .footer {
     background-color: #1a1a1a;
     color: white;
   }
 
-  .footer a {
-    color: white;
-  }
-
+  .footer a,
   .theme-toggle button {
     color: white;
   }
 }
 
-[data-theme="dark"] .footer {
-  background-color: #1a1a1a;
-  color: white;
+/* --- Альтернативная тёмная тема через data-theme --- */
+[data-theme="dark"] {
+  body {
+    background-color: #111111;
+    color: #dddddd;
+  }
+
+  a {
+    color: #88ccff;
+  }
+
+  .site-header,
+  .site-footer {
+    background-color: #1a1a1a;
+  }
+
+  .featured-post::before {
+    background: linear-gradient(to top,
+      rgba(0, 0, 0, 0.95),
+      rgba(0, 0, 0, 0.3),
+      transparent
+    );
+  }
+
+  .featured-post h2 span {
+    color: #ffffff;
+  }
+
+  .dropbtn {
+    background-color: #1a1a1a;
+    color: white;
+  }
+
+  .pagination a {
+    border-color: #ffffff;
+    color: #ffffff;
+  }
+
+  .footer {
+    background-color: #1a1a1a;
+    color: white;
+  }
+
+  .footer a,
+  .theme-toggle button {
+    color: white;
+  }
+
+  .dropdown-content .menu-link.active {
+    border-color: #fff;
+    color: #fff;
+  }
+
+  .category-nav .category-link.active {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+  }
 }
 
-[data-theme="dark"] .footer a {
-  color: white;
-}
-
-[data-theme="dark"] .theme-toggle button {
-  color: white;
-}
+/* --- Светлая тема через data-theme --- */
 [data-theme="light"] {
   background-color: white;
   color: black;
+
+  a {
+    color: #007acc;
+  }
+
+  .site-header,
+  .site-footer {
+    background-color: white;
+  }
+
+  .dropdown-content .menu-link.active {
+    border-color: #000;
+    color: #000;
+  }
+
+  .category-nav .category-link.active {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+  }
 }
 
-[data-theme="light"] a {
-  color: #007acc;
-}
-
-[data-theme="light"] .site-header,
-[data-theme="light"] .site-footer {
-  background-color: white;
-}
+/* --- Контент и плавность --- */
 .content-wrapper {
   max-width: 600px;
   margin: 0 auto;
   padding: 0 1rem;
-  padding-top: $header-thickness; // 80px
+  padding-top: $header-thickness;
 }
+
 html {
   transition: background-color 0.4s ease, color 0.4s ease;
 }
@@ -200,6 +194,8 @@ html {
 body, .footer, .header, .post-content {
   transition: background-color 0.4s ease, color 0.4s ease;
 }
+
+/* --- Навигация по категориям --- */
 .category-nav {
   display: flex;
   justify-content: flex-end;
@@ -221,34 +217,22 @@ body, .footer, .header, .post-content {
     .category-link {
       display: inline-block;
       padding: 8px 16px;
-      min-width: 100px; // ← Подберёшь под себя
+      min-width: 100px;
       text-align: center;
       text-decoration: none;
       font-weight: bold;
       border: 2px solid transparent;
       border-radius: 8px;
       transition: all 0.3s ease;
-    }
 
-    .category-link:hover {
-      opacity: 0.8;
-    }
-
-    [data-theme="dark"] & .category-link.active {
-      background: #fff;
-      color: #000;
-      border-color: #fff;
-    }
-
-    [data-theme="light"] & .category-link.active {
-      background: #000;
-      color: #fff;
-      border-color: #000;
+      &:hover {
+        opacity: 0.8;
+      }
     }
   }
 }
 
-// Социконки справа
+/* --- Иконки соцсетей справа --- */
 .social-icons {
   position: absolute;
   right: 10px;
@@ -259,7 +243,37 @@ body, .footer, .header, .post-content {
   }
 }
 
-// Мобильная версия
+/* --- Футер --- */
+.footer {
+  background-color: #f5f5f5;
+  padding: 1em 0;
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+
+  a {
+    color: #333;
+    text-decoration: none;
+    margin: 0 5px;
+  }
+
+  .footer-description {
+    margin-top: 10px;
+  }
+}
+
+/* --- Кнопка переключения темы --- */
+.theme-toggle button {
+  color: #333;
+  background: none;
+  border: none;
+  font-family: $body-font-family;
+  font-size: 14px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+/* --- Мобильная версия --- */
 @media screen and (max-width: 768px) {
   .category-nav {
     display: none;
@@ -269,25 +283,31 @@ body, .footer, .header, .post-content {
     display: flex;
     justify-content: flex-end;
     margin-right: 20px;
-  }
 
-  .dropdown-content {
-    right: 0;
-    left: auto;
-  }
+    .dropbtn {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 24px;
+    }
 
-  .dropdown-content .menu-link.active {
-    border-left: 4px solid;
-    padding-left: 12px;
-  }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 160px;
+      z-index: 1;
+      right: 0;
+      left: auto;
 
-  [data-theme="dark"] .dropdown-content .menu-link.active {
-    border-color: #fff;
-    color: #fff;
-  }
+      .menu-link.active {
+        border-left: 4px solid;
+        padding-left: 12px;
+      }
+    }
 
-  [data-theme="light"] .dropdown-content .menu-link.active {
-    border-color: #000;
-    color: #000;
+    &:hover .dropdown-content {
+      display: block;
+    }
   }
 }

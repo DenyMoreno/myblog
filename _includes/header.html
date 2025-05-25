@@ -3,8 +3,8 @@
     <a href="{{ site.baseurl }}/">{{ site.title }}</a>
   </h3>
 
-  <!-- Категории для ПК -->
-  <nav class="category-nav">
+  <!-- Категории для десктопа -->
+  <nav class="category-nav desktop-only">
     <ul class="category-list">
       {% assign categories = site.posts | map: "categories" | join: "," | split: "," | uniq | sort %}
       {% for category in categories %}
@@ -29,7 +29,7 @@
     {% endfor %}
   </div>
 
-  <!-- Бургер-меню только для мобилок -->
+  <!-- Мобильное меню -->
   <div class="dropdown mobile-only">
     <button class="dropbtn"><i class="fa fa-bars" aria-hidden="true"></i></button>
     <div class="dropdown-content">

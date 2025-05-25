@@ -1,13 +1,8 @@
----
----
-
 $base-font-family: 'Roboto', sans-serif;
 $body-font-family: 'Roboto', sans-serif;
 $code-font-family: "Source Code Pro", monospace;
 
 $brand-color: black;
-
-
 
 $container-width: 1000px;
 $tablet-width: 600px;
@@ -30,7 +25,11 @@ $rss-color: #ff6600;
 
 @import "-sections-dir";
 
-/* --- Автоматическая и ручная тёмная тема --- */
+// --- Цветовые схемы ---
+html, body, .footer, .header, .post-content {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
 body {
   background-color: white;
   color: black;
@@ -44,10 +43,40 @@ a {
 .site-footer {
   background-color: white;
 }
-@media (prefers-color-scheme: dark) {
+
+.footer {
+  background-color: #f5f5f5;
+  color: #333;
+  padding: 1em 0;
+  text-align: center;
+  font-size: 14px;
+
+  a {
+    color: #333;
+    text-decoration: none;
+    margin: 0 5px;
+  }
+
+  .footer-description {
+    margin-top: 10px;
+  }
+}
+
+.theme-toggle button {
+  color: #333;
+  background: none;
+  border: none;
+  font-family: $base-font-family;
+  font-size: 14px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+// Общие правила для светлой и тёмной тем через data-theme или prefers-color-scheme
+@mixin dark-theme {
   body {
-    background-color: #111111;
-    color: #dddddd;
+    background-color: #111;
+    color: #ddd;
   }
 
   a {
@@ -55,156 +84,120 @@ a {
   }
 
   .site-header,
-  .site-footer {
+  .site-footer,
+  .dropbtn {
     background-color: #1a1a1a;
+    color: white;
+  }
+
+  .footer {
+    background-color: #1a1a1a;
+    color: white;
+
+    a {
+      color: white;
+    }
+  }
+
+  .theme-toggle button {
+    color: white;
   }
 
   .featured-post::before {
     background: linear-gradient(to top,
       rgba(0, 0, 0, 0.95),
       rgba(0, 0, 0, 0.3),
-      transparent
-    );
+      transparent);
   }
 
   .featured-post h2 span {
-    color: #ffffff;
-  }
-
-  .dropbtn {
-    background-color: #1a1a1a;
-    color: white;
+    color: #fff;
   }
 
   .pagination a {
-    border-color: #ffffff;
-    color: #ffffff;
+    border-color: #fff;
+    color: #fff;
+  }
+
+  .dropdown-content .menu-link.active {
+    border-color: #fff;
+    color: #fff;
+  }
+
+  .category-link.active {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
   }
 }
 
-[data-theme="dark"] body {
-  background-color: #111111;
-  color: #dddddd;
-}
+@mixin light-theme {
+  body {
+    background-color: white;
+    color: black;
+  }
 
-[data-theme="dark"] a {
-  color: #88ccff;
-}
+  a {
+    color: #007acc;
+  }
 
-[data-theme="dark"] .site-header,
-[data-theme="dark"] .site-footer {
-  background-color: #1a1a1a;
-}
+  .site-header,
+  .site-footer {
+    background-color: white;
+  }
 
-[data-theme="dark"] .featured-post::before {
-  background: linear-gradient(to top,
-    rgba(0, 0, 0, 0.95),
-    rgba(0, 0, 0, 0.3),
-    transparent
-  );
-}
-
-[data-theme="dark"] .featured-post h2 span {
-  color: #ffffff;
-}
-
-[data-theme="dark"] .dropbtn {
-  background-color: #1a1a1a;
-  color: white;
-}
-
-[data-theme="dark"] .pagination a {
-  border-color: #ffffff;
-  color: #ffffff;
-}
-
-/* --- Footer и кнопка переключения темы --- */
-.footer {
-  background-color: #f5f5f5;
-  padding: 1em 0;
-  text-align: center;
-  font-size: 14px;
-  color: #333;
-}
-
-.footer a {
-  color: #333;
-  text-decoration: none;
-  margin: 0 5px;
-}
-
-.footer-description {
-  margin-top: 10px;
-}
-
-.theme-toggle button {
-  color: #333;
-  background: none;
-  border: none;
-  font-family: 'Roboto', sans-serif;
-  font-size: 14px;
-  margin-top: 10px;
-  cursor: pointer;
-}
-
-@media (prefers-color-scheme: dark) {
   .footer {
-    background-color: #1a1a1a;
-    color: white;
-  }
+    background-color: #f5f5f5;
+    color: #333;
 
-  .footer a {
-    color: white;
+    a {
+      color: #333;
+    }
   }
 
   .theme-toggle button {
-    color: white;
+    color: #333;
+  }
+
+  .dropdown-content .menu-link.active {
+    border-color: #000;
+    color: #000;
+  }
+
+  .category-link.active {
+    background: #000;
+    color: #fff;
+    border-color: #000;
   }
 }
 
-[data-theme="dark"] .footer {
-  background-color: #1a1a1a;
-  color: white;
+// Авто
+@media (prefers-color-scheme: dark) {
+  @include dark-theme;
 }
 
-[data-theme="dark"] .footer a {
-  color: white;
+// Ручное переключение
+[data-theme="dark"] {
+  @include dark-theme;
 }
 
-[data-theme="dark"] .theme-toggle button {
-  color: white;
-}
 [data-theme="light"] {
-  background-color: white;
-  color: black;
+  @include light-theme;
 }
 
-[data-theme="light"] a {
-  color: #007acc;
-}
-
-[data-theme="light"] .site-header,
-[data-theme="light"] .site-footer {
-  background-color: white;
-}
+// Контент-обёртка
 .content-wrapper {
   max-width: 600px;
   margin: 0 auto;
   padding: 0 1rem;
-  padding-top: $header-thickness; // 80px
-}
-html {
-  transition: background-color 0.4s ease, color 0.4s ease;
+  padding-top: $header-thickness;
 }
 
-body, .footer, .header, .post-content {
-  transition: background-color 0.4s ease, color 0.4s ease;
-}
+// Категории
 .category-nav {
   display: flex;
   justify-content: flex-end;
-  margin-top: 10px;
-  margin-right: 20px;
+  margin: 10px 20px 0 0;
 
   .category-list {
     display: flex;
@@ -221,34 +214,22 @@ body, .footer, .header, .post-content {
     .category-link {
       display: inline-block;
       padding: 8px 16px;
-      min-width: 100px; // ← Подберёшь под себя
+      min-width: 100px;
       text-align: center;
       text-decoration: none;
       font-weight: bold;
       border: 2px solid transparent;
       border-radius: 8px;
       transition: all 0.3s ease;
-    }
 
-    .category-link:hover {
-      opacity: 0.8;
-    }
-
-    [data-theme="dark"] & .category-link.active {
-      background: #fff;
-      color: #000;
-      border-color: #fff;
-    }
-
-    [data-theme="light"] & .category-link.active {
-      background: #000;
-      color: #fff;
-      border-color: #000;
+      &:hover {
+        opacity: 0.8;
+      }
     }
   }
 }
 
-// Социконки справа
+// Социконки
 .social-icons {
   position: absolute;
   right: 10px;
@@ -259,9 +240,10 @@ body, .footer, .header, .post-content {
   }
 }
 
-// Мобильная версия
+// Мобильная адаптация
 @media screen and (max-width: 768px) {
-  .category-nav {
+  .category-nav,
+  .social-icons {
     display: none;
   }
 
@@ -276,33 +258,11 @@ body, .footer, .header, .post-content {
     left: auto;
   }
 
-  .dropdown-content .menu-link.active {
-    border-left: 4px solid;
-    padding-left: 12px;
-  }
-
-  [data-theme="dark"] .dropdown-content .menu-link.active {
-    border-color: #fff;
-    color: #fff;
-  }
-
-  [data-theme="light"] .dropdown-content .menu-link.active {
-    border-color: #000;
-    color: #000;
-  }
-}
-/* Скрываем бургер вне мобильной ширины */
-.mobile-only {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .category-nav,
-  .social-icons {
-    display: none;
-  }
-
   .mobile-only {
     display: block;
   }
-} 
+}
+
+.mobile-only {
+  display: none;
+}

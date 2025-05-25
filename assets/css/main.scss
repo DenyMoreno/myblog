@@ -23,42 +23,42 @@ $medium-color: #00AB6C;
 $codepen-color: black;
 $rss-color: #ff6600;
 
-@import "-sections-dir";
-
-/* --- Автоматическая и ручная тёмная тема --- */
+/* Базовые стили для body и ссылок */
 body {
+  font-family: $body-font-family;
   background-color: white;
   color: black;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  margin: 0;
+  padding: 0;
 }
 
 a {
   color: #007acc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
+/* Заголовок и футер */
 .site-header,
 .site-footer {
   background-color: white;
-}
-
-/* --- Добавлено для корректного слоя шапки и ссылки --- */
-.site-header {
-  position: relative; /* чтобы z-index работал */
-  z-index: 1000;
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-.site-title a {
-  position: relative;
-  z-index: 1100; /* выше шапки */
-  display: inline-block;
-  padding: 10px 16px; /* удобная зона нажатия */
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-  user-select: none;
+/* Основной контейнер контента */
+.content-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  padding-top: $header-thickness;
 }
 
-/* --- Темная тема --- */
+/* Темная тема через prefers-color-scheme */
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #111111;
@@ -97,43 +97,88 @@ a {
   }
 }
 
-[data-theme="dark"] body {
-  background-color: #111111;
-  color: #dddddd;
+/* Темы с data-theme атрибутом для ручного переключения */
+[data-theme="dark"] {
+  body {
+    background-color: #111111;
+    color: #dddddd;
+  }
+
+  a {
+    color: #88ccff;
+  }
+
+  .site-header,
+  .site-footer {
+    background-color: #1a1a1a;
+  }
+
+  .featured-post::before {
+    background: linear-gradient(to top,
+      rgba(0, 0, 0, 0.95),
+      rgba(0, 0, 0, 0.3),
+      transparent
+    );
+  }
+
+  .featured-post h2 span {
+    color: #ffffff;
+  }
+
+  .dropbtn {
+    background-color: #1a1a1a;
+    color: white;
+  }
+
+  .pagination a {
+    border-color: #ffffff;
+    color: #ffffff;
+  }
+
+  .footer {
+    background-color: #1a1a1a;
+    color: white;
+  }
+
+  .footer a {
+    color: white;
+  }
+
+  .theme-toggle button {
+    color: white;
+  }
 }
 
-[data-theme="dark"] a {
-  color: #88ccff;
+[data-theme="light"] {
+  body {
+    background-color: white;
+    color: black;
+  }
+
+  a {
+    color: #007acc;
+  }
+
+  .site-header,
+  .site-footer {
+    background-color: white;
+  }
+
+  .footer {
+    background-color: #f5f5f5;
+    color: #333;
+  }
+
+  .footer a {
+    color: #333;
+  }
+
+  .theme-toggle button {
+    color: #333;
+  }
 }
 
-[data-theme="dark"] .site-header,
-[data-theme="dark"] .site-footer {
-  background-color: #1a1a1a;
-}
-
-[data-theme="dark"] .featured-post::before {
-  background: linear-gradient(to top,
-    rgba(0, 0, 0, 0.95),
-    rgba(0, 0, 0, 0.3),
-    transparent
-  );
-}
-
-[data-theme="dark"] .featured-post h2 span {
-  color: #ffffff;
-}
-
-[data-theme="dark"] .dropbtn {
-  background-color: #1a1a1a;
-  color: white;
-}
-
-[data-theme="dark"] .pagination a {
-  border-color: #ffffff;
-  color: #ffffff;
-}
-
-/* --- Footer и кнопка переключения темы --- */
+/* Футер */
 .footer {
   background-color: #f5f5f5;
   padding: 1em 0;
@@ -154,37 +199,116 @@ a {
 }
 
 .theme-toggle button {
-  color: #333;
   background: none;
   border: none;
-  font-family: 'Roboto', sans-serif;
+  font-family: $base-font-family;
   font-size: 14px;
   margin-top: 10px;
   cursor: pointer;
+  transition: color 0.3s ease;
 }
 
-@media (prefers-color-scheme: dark) {
-  .footer {
-    background-color: #1a1a1a;
-    color: white;
+/* Навигация категорий */
+.category-nav {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  margin-right: 20px;
+}
+
+.category-list {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category-list li {
+  display: flex;
+  align-items: center;
+}
+
+.category-link {
+  display: inline-block;
+  padding: 8px 16px;
+  min-width: 100px; // можно подстроить под дизайн
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.category-link:hover {
+  opacity: 0.8;
+}
+
+/* Активные категории для разных тем */
+[data-theme="dark"] .category-link.active {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+[data-theme="light"] .category-link.active {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+/* Социальные иконки справа сверху */
+.social-icons {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.social-icons .menu-link {
+  margin-left: 10px;
+}
+
+/* Мобильная версия */
+@media screen and (max-width: 768px) {
+  .category-nav,
+  .social-icons {
+    display: none;
   }
 
-  .footer a {
-    color: white;
+  .dropdown {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
   }
 
-  .theme-toggle button {
-    color: white;
+  .dropdown-content {
+    right: 0;
+    left: auto;
+  }
+
+  .dropdown-content .menu-link.active {
+    border-left: 4px solid;
+    padding-left: 12px;
+  }
+
+  [data-theme="dark"] .dropdown-content .menu-link.active {
+    border-color: #fff;
+    color: #fff;
+  }
+
+  [data-theme="light"] .dropdown-content .menu-link.active {
+    border-color: #000;
+    color: #000;
+  }
+
+  /* Показываем бургер только на мобильных */
+  .mobile-only {
+    display: block;
   }
 }
 
-[data-theme="dark"] .footer {
-  background-color: #1a1a1a;
-  color: white;
+/* Скрываем бургер вне мобильной ширины */
+.mobile-only {
+  display: none;
 }
-
-[data-theme="dark"] .footer a {
-  color: white;
-}
-
-[data-th]()

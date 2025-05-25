@@ -1,5 +1,5 @@
 layout: category
-title: Жизнь
+title: live
 category: live
 permalink: /category/live/
 

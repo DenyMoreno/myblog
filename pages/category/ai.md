@@ -1,4 +1,5 @@
 layout: category
 title: AI
-permalink: /myblog/category/ai/
 category: ai
+permalink: /myblog/category/ai/
+

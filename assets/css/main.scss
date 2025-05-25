@@ -1,75 +1,65 @@
-/* --- Навигация по категориям --- */
-.category-nav {
+<style>
+/* Адаптивное поведение */
+.desktop-only {
   display: flex;
-  justify-content: flex-end;
-  margin-top: 10px;
-  margin-right: 20px;
-
-  .category-list {
-    display: flex;
-    gap: 24px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-
-    li {
-      display: flex;
-      align-items: center;
-    }
-
-    .category-link {
-      display: inline-block;
-      padding: 8px 16px;
-      min-width: 100px;
-      text-align: center;
-      text-decoration: none;
-      font-weight: bold;
-      border: 2px solid transparent;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-
-      &:hover {
-        opacity: 0.8;
-      }
-    }
-  }
+}
+.mobile-only {
+  display: none;
 }
 
-/* --- Бургер-меню (только мобильная версия) --- */
 @media screen and (max-width: 768px) {
-  .category-nav {
+  .desktop-only {
     display: none;
   }
-
-  .dropdown {
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 20px;
-
-    .dropbtn {
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-      font-size: 24px;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: white;
-      min-width: 160px;
-      z-index: 1;
-      right: 0;
-      left: auto;
-
-      .menu-link.active {
-        border-left: 4px solid;
-        padding-left: 12px;
-      }
-    }
-
-    &:hover .dropdown-content {
-      display: block;
-    }
+  .mobile-only {
+    display: block;
   }
 }
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  flex-wrap: wrap;
+}
+
+.category-list {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category-link {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.category-link.active {
+  background-color: black;
+  color: white;
+}
+
+.social-icons .menu-link {
+  margin-left: 10px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  right: 10px;
+  top: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  min-width: 200px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>

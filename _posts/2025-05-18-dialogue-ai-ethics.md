@@ -3,7 +3,7 @@ layout: post
 title: "Диалог с ИИ: между логикой и моралью"
 date: 2025-05-18
 author: Денис
-categories: [этика, технологии, ИИ]
+categories: [ai, live]
 image: ii2.jpg
 ---
 

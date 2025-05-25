@@ -2,26 +2,51 @@
   <h3 class="site-title">
     <a href="{{ site.baseurl }}/">{{ site.title }}</a>
   </h3>
-  <nav class="menu-list">
-    {% assign categories = site.posts | map: "categories" | join: "," | split: "," | uniq | sort %}
-    {% for category in categories %}
-      {% assign category_trimmed = category | strip %}
-      <a href="{{ site.baseurl }}/category/{{ category_trimmed | slugify }}/" class="menu-link">{{ category_trimmed }}</a>
-    {% endfor %}
-    {% for item in site.data.settings.social %}
-      <a href="{{ item.link }}" class="menu-link" target="_blank"><i class="fa fa-{{ item.icon }}" aria-hidden="true"></i></a>
-    {% endfor %}
+
+  <!-- Категории для ПК -->
+  <nav class="category-nav">
+    <ul class="category-list">
+      {% assign categories = site.posts | map: "categories" | join: "," | split: "," | uniq | sort %}
+      {% for category in categories %}
+        {% assign category_trimmed = category | strip %}
+        <li>
+          <a
+            href="{{ site.baseurl }}/category/{{ category_trimmed | slugify }}/"
+            class="category-link {% if page.category == category_trimmed %}active{% endif %}">
+            {{ category_trimmed }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
   </nav>
+
+  <!-- Иконки соцсетей (отдельно) -->
+  <div class="social-icons">
+    {% for item in site.data.settings.social %}
+      <a href="{{ item.link }}" class="menu-link" target="_blank">
+        <i class="fa fa-{{ item.icon }}" aria-hidden="true"></i>
+      </a>
+    {% endfor %}
+  </div>
+
+  <!-- Бургер-меню для мобилок -->
   <div class="dropdown">
     <button class="dropbtn"><i class="fa fa-bars" aria-hidden="true"></i></button>
     <div class="dropdown-content">
       {% for category in categories %}
         {% assign category_trimmed = category | strip %}
-        <a href="{{ site.baseurl }}/category/{{ category_trimmed | slugify }}/" class="menu-link">{{ category_trimmed }}</a>
+        <a
+          href="{{ site.baseurl }}/category/{{ category_trimmed | slugify }}/"
+          class="menu-link {% if page.category == category_trimmed %}active{% endif %}">
+          {{ category_trimmed }}
+        </a>
       {% endfor %}
       {% for item in site.data.settings.social %}
-        <a href="{{ item.link }}" class="menu-link" target="_blank"><i class="fa fa-{{ item.icon }}" aria-hidden="true"></i></a>
+        <a href="{{ item.link }}" class="menu-link" target="_blank">
+          <i class="fa fa-{{ item.icon }}" aria-hidden="true"></i>
+        </a>
       {% endfor %}
     </div>
   </div>
 </header>
+

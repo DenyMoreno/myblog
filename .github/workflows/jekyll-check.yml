@@ -1,0 +1,35 @@
+name: Check Jekyll Site for Errors
+
+on:
+  push:
+    branches:
+      - master  # или main — смотри как у тебя называется
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Клонируем репозиторий
+        uses: actions/checkout@v3
+
+      - name: Устанавливаем Ruby и Jekyll
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+          bundler-cache: true
+
+      - name: Устанавливаем зависимости
+        run: |
+          gem install bundler
+          bundle install || true
+
+      - name: Проверка сборки Jekyll
+        run: |
+          bundle exec jekyll build
+
+      - name: Проверка HTML и стилей
+        run: |
+          gem install html-proofer
+          bundle exec jekyll build
+          htmlproofer ./_site --disable-external --only-4xx
